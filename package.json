@@ -8,7 +8,6 @@
     "canvas": "^2.9.0",
     "chalk": "^4.1.1",
     "common-tags": "^1.8.2",
-    "discord-buttons": "^4.0.0-deprecated",
     "discord.js": "^13.3.1",
     "express": "^4.17.2",
     "fs": "0.0.1-security",
