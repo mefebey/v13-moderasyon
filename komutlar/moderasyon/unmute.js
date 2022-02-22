@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
 const ms = require("ms");
-
+const ayarlar = require('../../ayarlar.json')
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('./db/systems.json');
@@ -9,11 +9,12 @@ const sdb = low(adapter);
 
 exports.run = async (client, message, args) => {
 
-          	if(!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send(
+let unlem = ayarlar.unlem
+          	if(!message.member.permissions.has("BAN_MEMBERS") && !message.member.roles.cache.has(ayarlar.mutePerm)) return message.channel.send(
            new Discord.MessageEmbed()
              .setColor("#ff0000")
              .setTimestamp()
-             .setDescription('<a:Unlem:781438398484971531> Bu komudu kullanabilmek için `ÜYELERİ_BANLA` yetkisine sahip olman gerek.'))
+             .setDescription(`${client.emojis.cache.get(unlem)} Bu komudu kullanabilmek için \`ÜYELERİ_BANLA\` yetkisine sahip olman gerek.`))
 
 
                 var msg = message;
