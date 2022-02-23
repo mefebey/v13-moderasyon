@@ -258,17 +258,7 @@ client.on("messageCreate", async msg => {
           let memberChannel = await db.fetch(`sk_${msg.guild.id}`);
           
           let level =  await db.fetch(`seviye_${msg.author.id + msg.guild.id}`)
-          let lvl5 = "934831716340756510"
-          let lvl10 = "934831703338385408"
-          let lvl15 = "934833079606976572"
-          let lvl20 = "934833259416813658"
-          let lvl25 = "934833253813219418"
-          let lvl30 = "934833228878053456"
-          let lvl35 = "934833888310751244"
-          let lvl40 = "934833916228042832"
-          let lvl45 = "934833921785479208"
-          let lvl50 = "934833958133321769"
-          let lvl55 = "934833928039170120"
+	  
           if (msg.channel.type === "dm") return;
           if (msg.author.bot) return;
     
