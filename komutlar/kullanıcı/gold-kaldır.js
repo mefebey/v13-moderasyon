@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
   if(message.member.id !== ayarlar.sahip) return message.channel.send('Bu komut sadece \`Sahibime\` özeldir.')
   let nesne = args[0]
   if (!nesne) return message.reply('Herhangi bir ID belirtiniz.')
-  
+      if(isNaN(nesne)) return message.channel.send("ID girmen gerekiyor!")
   db.delete(`üyelikk_${nesne}`)
   const log = new Discord.MessageEmbed()
   .setColor("RED")
