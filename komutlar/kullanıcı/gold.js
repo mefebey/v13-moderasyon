@@ -6,11 +6,13 @@ exports.run = async (bot, message, args) => {
     if(message.guild.id !== ayarlar.sunucuID) return message.channel.send('Bu komut sadece \`DESTEK\` sunucumda çalışmaktadır.')
  
     if(message.member.roles.cache.has(ayarlar.VIP) === true) return message.channel.send(`Zaten \`Gold\` rolün bulunuyor fazlasını ne yapacaksın`)
-let kirmizitik = ayarlar.kirmizitik
+
 if (db.has(`üyelikk_${message.author.id}`)) {
-      message.channel.send(`${client.emojis.cache.get(kirmizitik)} Başarıyla \`Gold\` rolünü aldınız. Gold durmunuza bakmak isterseniz **.gold-durum** `)
-  message.member.roles.add(ayarlar.VIP)
- } else
+  try {  
+ await message.member.roles.add(ayarlar.VIP)
+ await message.channel.send(`Başarıyla \`Gold\` rolünü aldınız. Gold durmunuza bakmak isterseniz **${ayarlar.prefix}gold-durum** `)  
+} catch {message.channel.send(`Size rol vermeye yetkim yetmiyor!`)}
+} else
   message.channel.send('Sistemde sizin adınıza ait gold üye bulunamadı.')
 }
 
