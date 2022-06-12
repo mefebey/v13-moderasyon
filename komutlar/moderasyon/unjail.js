@@ -31,8 +31,8 @@ exports.run = async(client, message, args) => {
    ${client.emojis.cache.get(duyuru)} **Kullanıcı**: ${member ? member.toString() : ""} - \`(${member.id})\`
    ${client.emojis.cache.get(zil)} **Yetkili**: ${message.author} - \`(${message.author.id})\`
     `)]})
-} catch {
-    message.channel.send({ embeds: [embed.setDescription(`Bu kullanıcıyı jail'den çıkartmadım!`)]})}
+} catch(error) {
+    message.channel.send({ embeds: [embed.setDescription(`Bu kullanıcıyı jail'den çıkartmadım! \nHata: \`${error}\` `)]})}
    
 }
 exports.conf = {
