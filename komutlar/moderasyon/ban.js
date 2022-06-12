@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
    await message.channel.send((`**${user}** **(${user.id})** kullanıcısı **"${reason}"** sebebiyle sunucudan banlandı! ${client.emojis.cache.get(tik)}`))
   await message.react(tik)
     await client.channels.cache.get(banLog).send({embeds: [log]});      
-        } catch {message.channel.send(`${user} adlı kullanıcıyı banlayamıyorum! ${client.emojis.cache.get(carpi)}`)}
+     } catch(error) {message.channel.send(`${user} adlı kullanıcıyı banlayamıyorum! ${client.emojis.cache.get(carpi)} \nHata: \`${error}\` `)}
    
   };
 exports.conf = {
