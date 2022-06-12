@@ -37,7 +37,7 @@ let prefix = ayarlar.prefix
   const banList = await message.guild.bans.fetch();
  
   if (!user.id === banList) return message.channel.send
-      (userError3)
+      ({embeds:[userError3]})
  try {
  await message.guild.members.unban(user);
 await message.channel.send(`<@${user}> Adlı Kullanıcının Yasağı Başarıyla Kaldırıldı.`)
