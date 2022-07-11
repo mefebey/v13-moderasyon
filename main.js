@@ -450,4 +450,26 @@ client.on("messageCreate", async msg => {
     member.roles.add(rol)
     kanalcık.send(`${client.emojis.cache.get(ayarlar.gir)} **${member.user.tag}** Sunucuya katıldı otomatik rol verildi! Hoş geldin <@!${member.user.id}>`)
   }) 
+
+client.on("guildMemberAdd", member => {
+   
+    const embed = new Discord.MessageEmbed()
+            .setColor("RANDOM")
+            .setAuthor({
+                name: member.displayName, 
+                iconURL: client.user.displayAvatarURL({	dynamic: true,	})	})
+            .setTimestamp()
+    
+    if(db.get(`jailed_${member.id}`)) {
+     member.roles.add(ayarlar.jailRol) 
+   member.guild.channels.cache.get(ayarlar.jailLog).send({ embeds: [
+        embed.setDescription(`Birisi karantinaya atıldı!
+         
+         ${client.emojis.cache.get(ayarlar.duyuru)} Kullanıcı: ${member ? member.toString() : ""} - \`(${member.id})\`
+        ${client.emojis.cache.get(ayarlar.toplar)} **Sebep**: \`Jailli iken çık-gir yapmak\`      
+        `)]}) 
+    member.guild.channels.cache.get(ayarlar.kayıtLog).send(`${client.emojis.cache.get(ayarlar.toplar)} <@${member.id}> adlı kullanıcı jailli iken çık-gir yaptığı için jaile atıldı!`)
+    } else return;
+  })
+
 client.login(ayarlar.token)
