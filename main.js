@@ -113,17 +113,13 @@ client.on("messageCreate", async msg => {
     if (i == 'acik') {
               const reklam = ["https://","http://","discord.gg",".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".net", ".rf.gd", ".az", ".party", "discord.gg"];
               if (reklam.some(word => msg.content.toLowerCase().includes(word))) {
-                try {
                   if (!msg.member.permissions.has("MANAGE_GUILD")) {
-                    msg.delete();
+               try { msg.delete();} catch(err) {}
                     return msg.channel.send({embeds:[
                        new Discord.MessageEmbed()
                        .setColor('BLUE')
                        .setDescription(`<@${msg.author.id}> __**link atmak yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
                   }
-                } catch(err) {
-
-                }
               }
 
 } if (!i) return; 
@@ -135,18 +131,15 @@ client.on("messageCreate", async msg => {
             if (i == 'acik') {      
             const reklam = ["https://","http://","discord.gg",".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".net", ".rf.gd", ".az", ".party", "discord.gg"];
                    if (reklam.some(word => newMessage.content.includes(word))) {
-                     try {
                        if (!oldMessage.member.permissions.has("MANAGE_GUILD")) {
-                             oldMessage.delete();
+               try { oldMessage.delete();} catch(err) {}
 
                                  return oldMessage.channel.send({embeds:[
                                   new Discord.MessageEmbed()
                        .setColor('BLUE')
                        .setDescription(`<@${oldMessage.author.id}> __**link atmak yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
                                  }
-                     } catch(err) {
 
-                     }
                    }
            } if (!i) return; 
           });
@@ -158,17 +151,14 @@ client.on("messageCreate", async msg => {
             if (i == 'acik') {
             const kufur = ["amk", "ananı sikiyim", "ananıskm", "piç", "amk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "yarrak", "amcık", "yarram", "sikimi ye", "amq"];
                         if (kufur.some(word => msg.content.toLowerCase().includes(word))) {
-                          try {
                             if (!msg.member.permissions.has("BAN_MEMBERS")) {
-                              msg.delete();
+               try { msg.delete();} catch(err) {}
                               return msg.channel.send({embeds:[
                                 new Discord.MessageEmbed()
                        .setColor('BLUE')
                        .setDescription(`<@${msg.author.id}> __**küfür etmek yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
                             }
-                          } catch(err) {
 
-                          }
                         }
           } if (!i) return; 
         })
@@ -178,18 +168,15 @@ client.on("messageCreate", async msg => {
                       if (i == 'acik') {
                       const kufur = ["amk", "ananı sikiyim", "ananıskm", "piç", "amk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "yarrak", "amcık", "yarram", "sikimi ye", "amq"];
                              if (kufur.some(word => newMessage.content.includes(word))) {
-                               try {
                                  if (!oldMessage.member.permissions.has("BAN_MEMBERS")) {
-                                       oldMessage.delete();
+               try { oldMessage.delete();} catch(err) {}
 
                                            return oldMessage.channel.send({embeds:[
                                             new Discord.MessageEmbed()
                                             .setColor('BLUE')
                                             .setDescription(`<@${oldMessage.author.id}> __**küfür etmek yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
                                            }
-                               } catch(err) {
 
-                               }
                              }
                    
                    } if(!i) return; 
@@ -220,7 +207,7 @@ client.on("messageCreate", async msg => {
         let x = /\w*[A-Z]\w*[A-Z]\w*/g;
     if (msg.content.match(x)) {
       if (!msg.member.permissions.has("KICK_MEMBERS")) {
-        msg.delete();
+               try { msg.delete();} catch(err) {}
         return msg.channel.send({embeds:[
           new Discord.MessageEmbed()
          .setColor('BLUE')
@@ -236,7 +223,7 @@ client.on("messageCreate", async msg => {
     let x = /\w*[A-Z]\w*[A-Z]\w*/g;
     if (newMessage.content.match(x)) {
       if (!oldMessage.member.permissions.has("KICK_MEMBERS")) {
-        oldMessage.delete();
+               try { oldMessage.delete();} catch(err) {}
         return oldMessage.channel.send({embeds:[
           new Discord.MessageEmbed()
          .setColor('BLUE')
