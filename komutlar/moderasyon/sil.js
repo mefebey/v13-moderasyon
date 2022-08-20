@@ -38,7 +38,7 @@ message.channel.send({embeds:[
     new Discord.MessageEmbed()
      .setColor('RANDOM')
      .setTimestamp()
-     .setDescription(`**${args[0]}** adet mesaj başarıyla silindi!`)]}).then((message) => setTimeout(() => message.delete(), 5000));;
+     .setDescription(`**${args[0]}** adet mesaj başarıyla silindi!`)]}).then((message) => setTimeout(() => message.delete(), 5000)).catch(error => {});
 }
 exports.conf = {
     enabled: true,
