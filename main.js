@@ -118,7 +118,7 @@ client.on("messageCreate", async msg => {
                     return msg.channel.send({embeds:[
                        new Discord.MessageEmbed()
                        .setColor('BLUE')
-                       .setDescription(`<@${msg.author.id}> __**link atmak yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
+                       .setDescription(`<@${msg.author.id}> __**link atmak yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000)).catch(error => {});
                   }
               }
 
@@ -137,7 +137,7 @@ client.on("messageCreate", async msg => {
                                  return oldMessage.channel.send({embeds:[
                                   new Discord.MessageEmbed()
                        .setColor('BLUE')
-                       .setDescription(`<@${oldMessage.author.id}> __**link atmak yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
+                       .setDescription(`<@${oldMessage.author.id}> __**link atmak yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000)).catch(error => {});
                                  }
 
                    }
@@ -156,7 +156,7 @@ client.on("messageCreate", async msg => {
                               return msg.channel.send({embeds:[
                                 new Discord.MessageEmbed()
                        .setColor('BLUE')
-                       .setDescription(`<@${msg.author.id}> __**küfür etmek yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
+                       .setDescription(`<@${msg.author.id}> __**küfür etmek yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000)).catch(error => {});
                             }
 
                         }
@@ -174,7 +174,7 @@ client.on("messageCreate", async msg => {
                                            return oldMessage.channel.send({embeds:[
                                             new Discord.MessageEmbed()
                                             .setColor('BLUE')
-                                            .setDescription(`<@${oldMessage.author.id}> __**küfür etmek yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
+                                            .setDescription(`<@${oldMessage.author.id}> __**küfür etmek yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000)).catch(error => {});
                                            }
 
                              }
@@ -211,7 +211,7 @@ client.on("messageCreate", async msg => {
         return msg.channel.send({embeds:[
           new Discord.MessageEmbed()
          .setColor('BLUE')
-        .setDescription(`<@${msg.author.id}> __**Caps-lock yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
+        .setDescription(`<@${msg.author.id}> __**Caps-lock yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000)).catch(error => {});
       }
     }
   } if(!i) return;
@@ -227,7 +227,7 @@ client.on("messageCreate", async msg => {
         return oldMessage.channel.send({embeds:[
           new Discord.MessageEmbed()
          .setColor('BLUE')
-        .setDescription(`<@${oldMessage.author.id}> __**Caps-lock yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000));
+        .setDescription(`<@${oldMessage.author.id}> __**Caps-lock yasak!**__ ${client.emojis.cache.get(ayarlar.kizgin)}`)]}).then((message) => setTimeout(() => message.delete(), 6000)).catch(error => {});
       }
     }
     } if(!i) return; 
@@ -245,7 +245,7 @@ client.on("messageCreate", async msg => {
           let memberChannel = await db.fetch(`sk_${msg.guild.id}`);
           
           let level =  await db.fetch(`seviye_${msg.author.id + msg.guild.id}`)
-	  
+          
           if (msg.channel.type === "dm") return;
           if (msg.author.bot) return;
     
@@ -329,7 +329,7 @@ client.on("messageCreate", async msg => {
         db.delete(`afk_süre_${message.author.id}`);
         message
           .channel.send(`${client.emojis.cache.get(ayarlar.mavitik)} Afk sistemi sıfırlandı`)
-          .then((msg) => setTimeout(() => msg.delete(), 6000));
+          .then((msg) => setTimeout(() => msg.delete(), 6000)).catch(error => {});
       }
     
       var USER = message.mentions.users.first();
@@ -348,13 +348,13 @@ client.on("messageCreate", async msg => {
               `${client.emojis.cache.get(ayarlar.maviyildiz)} \`${USER.tag}\` Adlı Gold üyeyi rahatsız edemezsiniz. ${client.emojis.cache.get(ayarlar.maviyildiz)}\nAFK süresi: \`${timeObj.hours}\`** saat** \`${timeObj.minutes}\`** dakika** \`${timeObj.seconds}\` ** saniye**\nSebep:\n\`${REASON}\``
             );
     
-          message.channel.send({embeds:[embed]}).then((msg) => setTimeout(() => msg.delete(), 6000));
+          message.channel.send({embeds:[embed]}).then((msg) => setTimeout(() => msg.delete(), 6000)).catch(error => {});
         } else
           message.channel
             .send(
               `\`${USER.tag}\` kullanıcısı AFK\nAFK süresi: \`${timeObj.hours}\`** saat** \`${timeObj.minutes}\`** dakika** \`${timeObj.seconds}\` ** saniye**\nSebep:\n\`${REASON}\` `
             )
-            .then((msg) => setTimeout(() => msg.delete(), 6000));
+            .then((msg) => setTimeout(() => msg.delete(), 6000)).catch(error => {});
       }
     });
 
@@ -380,7 +380,7 @@ client.on("messageCreate", async msg => {
         const embed = new Discord.MessageEmbed()
         .setDescription(`${client.emojis.cache.get(ayarlar.gold)}Sıkı Durun Bir Gold Üye Belirdi <@${message.author.id}>`)
         .setColor('GOLD');
-        message.channel.send({embeds:[embed]}).then((msg) => setTimeout(() => msg.delete(), 5000));
+        message.channel.send({embeds:[embed]}).then((msg) => setTimeout(() => msg.delete(), 5000)).catch(error => {});
         db.set(`goldbildirim.${message.author.id}`, Date.now());
     };
   });
